@@ -1,0 +1,32 @@
+
+med  <- c(22.5, 139.5, 416, 1356.5)
+cells = c(1058, 1287, 1285, 1412)
+new_med <- c(0,0,0,0)
+SIMULATED_POPULATION <- 2653279.5
+REAL_POPULATION <- 3396677
+
+res = 1.0001
+f <- 0
+total <- 0
+flag <- 1
+while(flag == 1){
+  
+  for(i in 1:4){
+    
+    new_med[[i]] <- med[[i]] * cells[[i]] 
+    total <- total + new_med[[i]] 
+    
+  }
+  
+  total <- total * res
+  total <- total - REAL_POPULATION
+  total <- total * -1
+  if(total <= 5){
+    flag <- 0
+    
+  }
+  
+  res <- res + 0.0001
+  total <- 0
+  
+}
